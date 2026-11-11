@@ -90,6 +90,60 @@ body{background:#aeb4bc;color:#111318}
 @media(max-width:760px){.hero-orb{right:7%;top:17%;width:100px}.hero-ring{right:0;top:25%;width:145px;height:58px}.hero-slab{right:27%;bottom:17%;width:76px;height:76px}.intro-layer{right:-25%;bottom:4%;width:250px;height:90px}.stage-orb{right:5%;top:18%;width:72px}.drop-sphere{left:3%;top:8%;width:100px}.drop-ring{right:-12%;bottom:7%;width:180px;height:65px}.drop-layer{width:90%;left:5%;top:39%}}
 @media(prefers-reduced-motion:reduce){.chrome-object,.chrome-layer,.stage-orbit{animation:none!important}}
 
+
+/* WTBF — fluid editorial direction */
+:root{--ink:#171717;--paper:#f4f0e8;--pink:#ff5aa5;--lime:#d7ff45;--blue:#5b8cff;--orange:#ff713b;--purple:#a88aff}
+body{background:var(--paper);color:var(--ink)}
+.topline{background:#171717;color:#fff;animation:none}
+.hero{background:var(--paper);color:var(--ink);animation:none;isolation:isolate}
+.hero:before{content:"";position:absolute;z-index:0;pointer-events:none;left:-12%;top:24%;width:125%;height:38%;background:linear-gradient(100deg,var(--pink),var(--orange) 28%,var(--lime) 55%,var(--blue) 78%,var(--purple));clip-path:polygon(0 36%,13% 10%,28% 26%,43% 0,59% 23%,74% 5%,88% 30%,100% 12%,100% 65%,86% 88%,70% 70%,54% 100%,39% 74%,23% 95%,10% 72%,0 90%);transform:rotate(-7deg);transform-origin:center;animation:heroRibbon 13s cubic-bezier(.45,0,.35,1) infinite alternate;opacity:.9}
+.hero:after{inset:0;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.7) 49%,transparent 60%);transform:translateX(-120%);mix-blend-mode:overlay;animation:editorialSweep 7s ease-in-out infinite}
+.hero h1{color:#171717;text-shadow:0 2px 0 rgba(255,255,255,.55)}
+.hero-kicker,.hero-foot{z-index:3}
+.marquee{background:#171717;color:#fff;animation:none}
+.marquee em{color:var(--pink);text-shadow:none}
+.section{animation:none}
+.intro{background:var(--lime);color:#171717}
+.stage{background:#e8dfff;color:#171717}
+.products{background:#fff6d8;color:#171717}
+.lookbook{background:#ff875c;color:#171717}
+.drop{background:#5b8cff;color:#fff;isolation:isolate}
+.stage-orbit,.stage-orb,.intro-layer,.hero-orb,.hero-ring,.hero-slab,.drop-sphere,.drop-ring,.drop-layer{display:none!important}
+.model{box-shadow:22px 24px 0 var(--orange);filter:saturate(1.12);border-radius:2px;will-change:transform,clip-path}
+.product-visual{background:var(--tone);border:0;box-shadow:none;overflow:hidden}
+.product-visual:before{display:none}
+.product-visual img{mix-blend-mode:multiply;filter:none;border:0;box-shadow:none;transform:scale(.92);transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .8s}
+.product:hover .product-visual img{transform:scale(1.04) rotate(-2deg);filter:saturate(1.22)}
+.product:nth-child(2) .product-visual img,.product:nth-child(3) .product-visual img{transform:scale(.92)}
+.product:nth-child(2):hover .product-visual img,.product:nth-child(3):hover .product-visual img{transform:scale(1.04) rotate(2deg)}
+.look-grid img{filter:none;border:0;box-shadow:none;transform:translateY(0);transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .8s}
+.look-grid img:hover{filter:saturate(1.12);transform:translateY(-8px) scale(.985)}
+.section h2,.drop h2,.count strong{color:inherit;text-shadow:none}
+.footer{background:#171717;color:#fff;animation:none}
+.footer-logo{color:#fff;text-shadow:none}
+.footer-bottom{border-color:#555}
+.nav{background:rgba(255,255,255,.72);border:1px solid rgba(23,23,23,.12);box-shadow:0 12px 38px rgba(23,23,23,.13);backdrop-filter:blur(20px)}
+.nav:before,.nav:after{display:none}
+.logo{background:#171717;color:#fff;box-shadow:none}
+.navlinks a,.language-switch{background:rgba(255,255,255,.9);border-color:rgba(23,23,23,.15);box-shadow:none}
+.navlinks a:hover,.language-switch button.active{background:#171717;color:#fff}
+.language-switch button{color:#171717}
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .85s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.motion-item{opacity:0;transform:translateY(54px) scale(.975);transition:opacity .9s ease,transform 1s cubic-bezier(.16,1,.3,1);will-change:transform,opacity}
+.motion-item.is-visible{opacity:1;transform:translateY(0) scale(1)}
+.product.motion-item:nth-child(2){transition-delay:.12s}
+.product.motion-item:nth-child(3){transition-delay:.24s}
+.look-grid>div.motion-item:nth-child(2){transition-delay:.14s}
+.look-grid>div.motion-item:nth-child(3){transition-delay:.28s}
+.motion-image{opacity:0;clip-path:inset(12% 0 12% 0);transition:opacity 1s ease,clip-path 1.2s cubic-bezier(.16,1,.3,1)}
+.motion-image.is-visible{opacity:1;clip-path:inset(0 0 0 0)}
+.count>div{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.count>div:hover{transform:translateY(-8px)}
+@keyframes heroRibbon{0%{transform:translate3d(-2%,0,0) rotate(-7deg) scaleY(.9)}50%{transform:translate3d(2%,-3%,0) rotate(-3deg) scaleY(1.12)}100%{transform:translate3d(-1%,2%,0) rotate(-9deg) scaleY(.96)}}
+@keyframes editorialSweep{0%,18%{transform:translateX(-120%);opacity:0}35%{opacity:.8}65%,100%{transform:translateX(120%);opacity:0}}
+@media(max-width:760px){.hero:before{top:29%;height:30%;left:-22%;width:145%}.model{box-shadow:12px 14px 0 var(--orange)}.motion-item{transform:translateY(30px) scale(.985)}}
+@media(prefers-reduced-motion:reduce){.hero:before,.hero:after{animation:none!important}.motion-item,.motion-image,.reveal{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}}
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -109,17 +163,17 @@ body{background:#aeb4bc;color:#111318}
 </div>
 </nav>
 <header class="hero" id="home">
-<div class="chrome-object hero-orb" aria-hidden="true"></div><div class="chrome-object hero-ring" aria-hidden="true"></div><div class="chrome-object hero-slab" aria-hidden="true"></div>
+
 <h1>WTBF<span class="trademark">™</span></h1>
 </header>
 <section class="section intro" id="concept">
 <h2 class="reveal" data-i18n="conceptTitle">CONCEPT</h2>
-<div class="chrome-layer intro-layer" aria-hidden="true"></div>
+
 </section>
 <section class="section stage" id="motion">
 <h2 class="reveal" data-i18n="motionTitle">MOTION</h2>
 <div class="stage-wrap">
-<div class="stage-orbit" aria-hidden="true"></div><div class="chrome-object stage-orb" aria-hidden="true"></div>
+
 <img class="model" id="scrollModel" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=85" alt="Streetwear editorial model" data-i18n-alt="modelAlt">
 </div>
 </section>
@@ -140,7 +194,7 @@ body{background:#aeb4bc;color:#111318}
 </div>
 </section>
 <section class="section drop" id="drop">
-<div class="chrome-object drop-sphere" aria-hidden="true"></div><div class="chrome-object drop-ring" aria-hidden="true"></div><div class="chrome-layer drop-layer" aria-hidden="true"></div>
+
 <div>
 <h2 data-i18n="dropTitle">MAY 2027</h2>
 <div class="count" id="countdown">
@@ -154,8 +208,8 @@ body{background:#aeb4bc;color:#111318}
 <script>
 
 
-const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});reveals.forEach(el=>observer.observe(el));
-const model=document.getElementById('scrollModel');let ticking=false;function updateScroll(){const r=model.parentElement.getBoundingClientRect();const progress=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));const rot=-12+progress*25;const scale=.82+Math.sin(progress*Math.PI)*.22;const y=(progress-.5)*100;model.style.transform='translateY('+y+'px) rotate('+rot+'deg) scale('+scale+')';model.style.borderRadius=(progress*42)+'% '+((1-progress)*8)+'% '+(progress*8)+'% '+((1-progress)*42)+'%';model.style.filter='hue-rotate('+(progress*100)+'deg) saturate('+(1.1+progress*.8)+')';ticking=false}window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateScroll);ticking=true}},{passive:true});updateScroll();
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in','is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.14,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));document.querySelectorAll('.product,.look-grid>div,.count>div').forEach(el=>{el.classList.add('motion-item');revealObserver.observe(el)});document.querySelectorAll('.look-grid img').forEach(el=>{el.classList.add('motion-image');revealObserver.observe(el)});
+const model=document.getElementById('scrollModel');model.classList.add('motion-image');let ticking=false;function updateScroll(){const r=model.parentElement.getBoundingClientRect();const progress=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));const rot=-7+progress*14;const scale=.94+Math.sin(progress*Math.PI)*.08;const y=(progress-.5)*52;model.style.transform='translateY('+y+'px) rotate('+rot+'deg) scale('+scale+')';ticking=false}window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateScroll);ticking=true}},{passive:true});updateScroll();
 
 const target=new Date('2027-05-01T00:00:00');function tick(){let d=Math.max(0,target-Date.now());const vals=[Math.floor(d/86400000),Math.floor(d/3600000)%24,Math.floor(d/60000)%60,Math.floor(d/1000)%60];document.querySelectorAll('#countdown strong').forEach((el,i)=>el.textContent=String(vals[i]).padStart(2,'0'))}tick();setInterval(tick,1000);
 document.querySelectorAll('.product-visual').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*18+'deg');el.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*-18+'deg')});el.addEventListener('pointerleave',()=>{el.style.removeProperty('--mx');el.style.removeProperty('--my')})});
