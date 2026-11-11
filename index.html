@@ -573,6 +573,47 @@ body{background:var(--paper);color:var(--ink)}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 2px 7px rgba(8,18,5,.15)!important;
 }
 
+
+
+/* Consistent lime for every dock button; selected language is lighter, never raised */
+.nav .logo,.navlinks a,.language-switch button{
+  color:#17210b!important;
+  background:#b9f34b!important;
+  background-image:none!important;
+  border:1px solid rgba(51,83,12,.22)!important;
+  box-shadow:0 3px 10px rgba(8,18,5,.14),inset 0 1px 0 rgba(255,255,255,.62)!important;
+  text-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transform:none!important;
+  translate:0 0!important;
+}
+.nav .logo:before,.nav .logo:after,
+.navlinks a:before,.navlinks a:after,
+.language-switch button:before,.language-switch button:after{
+  content:none!important;
+  display:none!important;
+}
+.nav .logo:hover,.navlinks a:hover,.language-switch button:hover{
+  color:#142006!important;
+  background:#b9f34b!important;
+  background-image:none!important;
+  border-color:rgba(51,83,12,.28)!important;
+  box-shadow:0 3px 10px rgba(8,18,5,.14),inset 0 1px 0 rgba(255,255,255,.62)!important;
+  transform:none!important;
+  translate:0 0!important;
+}
+.language-switch button.active,
+.language-switch button.active:hover{
+  color:#142006!important;
+  background:#caff70!important;
+  background-image:none!important;
+  border-color:rgba(51,83,12,.28)!important;
+  box-shadow:0 3px 10px rgba(8,18,5,.14),inset 0 1px 0 rgba(255,255,255,.78)!important;
+  transform:none!important;
+  translate:0 0!important;
+}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
