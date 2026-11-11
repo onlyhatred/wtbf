@@ -6,12 +6,7 @@
   <meta name="theme-color" content="#000000">
   <title>Countdown</title>
   <style>
-    :root {
-      color-scheme: dark;
-      --chrome-top: #ffffff;
-      --chrome-mid: #a7a7a7;
-      --chrome-dark: #515151;
-    }
+    :root { color-scheme: dark; }
 
     * {
       box-sizing: border-box;
@@ -41,11 +36,11 @@
     .timer {
       position: relative;
       isolation: isolate;
-      width: min(960px, 100%);
+      width: min(1000px, 100%);
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       align-items: center;
-      gap: clamp(8px, 3vw, 34px);
+      gap: clamp(10px, 3vw, 36px);
       text-align: center;
     }
 
@@ -53,89 +48,106 @@
       content: "";
       position: absolute;
       z-index: -1;
-      inset: -42% -8%;
+      inset: -48% -10%;
       pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(160,160,160,.095) 0%, rgba(75,75,75,.035) 36%, transparent 70%);
-      filter: blur(22px);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(180,180,180,.11) 0%,
+        rgba(100,100,100,.045) 38%,
+        transparent 72%
+      );
+      filter: blur(26px);
     }
 
     .unit {
       position: relative;
       min-width: 0;
-      padding: 8px 0;
+      padding: 10px 0;
     }
 
     .unit + .unit::before {
       content: "";
       position: absolute;
-      top: 22%;
-      bottom: 22%;
-      left: calc(clamp(8px, 3vw, 34px) / -2);
+      top: 20%;
+      bottom: 20%;
+      left: calc(clamp(10px, 3vw, 36px) / -2);
       width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(210,210,210,.22), transparent);
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(220,220,220,.3),
+        transparent
+      );
     }
 
     .chrome {
-      color: #d8d8d8;
+      color: #e7e7e7;
       background: linear-gradient(
-        180deg,
-        #454545 0%,
-        #bcbcbc 9%,
-        #ffffff 17%,
-        #8a8a8a 28%,
-        #f7f7f7 39%,
-        #666666 50%,
-        #eeeeee 62%,
-        #777777 73%,
-        #fdfdfd 84%,
-        #777777 94%,
-        #d0d0d0 100%
+        110deg,
+        #555 0%,
+        #d7d7d7 10%,
+        #fff 17%,
+        #777 26%,
+        #f5f5f5 36%,
+        #626262 46%,
+        #fefefe 56%,
+        #858585 66%,
+        #fff 76%,
+        #666 87%,
+        #dedede 100%
       );
-      background-size: 100% 180%;
-      background-position: 50% 48%;
+      background-size: 260% 100%;
+      background-position: 0% 50%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 8px rgba(220,220,220,.12));
+      color: transparent;
+      animation: chromeFlow 5.5s linear infinite;
+      filter: drop-shadow(0 2px 9px rgba(225,225,225,.17));
+    }
+
+    @keyframes chromeFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     .value {
       display: block;
       font-size: clamp(42px, 9.5vw, 108px);
-      line-height: .98;
+      line-height: 1;
       font-weight: 700;
-      letter-spacing: -.085em;
+      letter-spacing: -.055em;
       font-variant-numeric: tabular-nums;
       font-feature-settings: "tnum";
     }
 
     .label {
       display: block;
-      margin-top: 19px;
-      font-size: clamp(8px, 1.15vw, 10px);
-      line-height: 1;
-      font-weight: 600;
-      letter-spacing: .28em;
-      text-indent: .28em;
+      margin-top: 18px;
+      font-size: clamp(10px, 1.2vw, 12px);
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-indent: .17em;
       text-transform: uppercase;
-      opacity: .82;
+      opacity: 1;
     }
 
     @media (max-width: 520px) {
-      body { padding: 16px; }
-      .timer { gap: 5px; }
+      body { padding: 15px; }
+      .timer { gap: 6px; }
       .unit + .unit::before { left: -3px; }
       .value { font-size: clamp(34px, 10vw, 52px); }
       .label {
-        margin-top: 14px;
-        font-size: 7px;
-        letter-spacing: .15em;
-        text-indent: .15em;
+        margin-top: 13px;
+        font-size: clamp(8px, 2.1vw, 10px);
+        letter-spacing: .1em;
+        text-indent: .1em;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto; }
+      .chrome { animation: none; }
     }
   </style>
 </head>
