@@ -1,9 +1,995 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111110">
+  <meta name="description" content="WTBF — an independent clothing label. Everyday pieces, uncompromising attitude.">
+  <title>WTBF® — Wear Your Own Rules</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #111110;
+      --ink-soft: #1b1b19;
+      --paper: #f1efe9;
+      --paper-deep: #e8e5dd;
+      --white: #faf9f5;
+      --muted: #999891;
+      --line-dark: rgba(255,255,255,.15);
+      --line-light: rgba(17,17,16,.15);
+      --accent: #c9ff59;
+      --content: 1320px;
+      --ease: cubic-bezier(.2,.75,.25,1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--white);
+      font-family: "DM Sans", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body, button, a { -webkit-tap-highlight-color: transparent; }
+    button, input { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: var(--accent); color: var(--ink); }
+    .container { width: min(var(--content), calc(100% - 72px)); margin: 0 auto; }
+    .announcement {
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      padding: 7px 18px;
+      background: var(--accent);
+      color: var(--ink);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-align: center;
+    }
+    .announcement span { opacity: .62; }
+    .site-header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 0 max(36px, calc((100% - var(--content)) / 2));
+      background: var(--ink);
+      border-bottom: 1px solid var(--line-dark);
+      position: relative;
+      z-index: 30;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: flex-start;
+      color: var(--white);
+      font-family: "Manrope", sans-serif;
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -.095em;
+      line-height: 1;
+    }
+    .brand-mark { color: var(--accent); font-size: 10px; letter-spacing: 0; margin: 1px 0 0 4px; }
+    .main-nav { display: flex; align-items: center; gap: 39px; margin-left: auto; margin-right: 36px; }
+    .main-nav a, .header-link {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: rgba(250,249,245,.72);
+      transition: color .2s ease;
+    }
+    .main-nav a:hover, .header-link:hover { color: var(--accent); }
+    .header-actions { display: flex; align-items: center; gap: 22px; }
+    .bag-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 0;
+      background: transparent;
+      padding: 9px 0 9px 10px;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .bag-count {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--ink);
+      font-size: 10px;
+      letter-spacing: 0;
+    }
+    .menu-toggle { display: none; border: 0; background: transparent; padding: 8px; cursor: pointer; }
+    .hero {
+      min-height: min(720px, calc(100svh - 114px));
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .hero-copy {
+      padding: clamp(64px, 8vw, 122px) 7vw clamp(55px, 7vw, 100px) max(36px, calc((100vw - var(--content)) / 2));
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 27px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    .hero h1 {
+      max-width: 720px;
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(68px, 8.45vw, 132px);
+      line-height: .82;
+      letter-spacing: -.105em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero-lead {
+      max-width: 340px;
+      margin: 29px 0 32px;
+      color: rgba(250,249,245,.65);
+      font-size: 14px;
+      line-height: 1.7;
+      letter-spacing: .01em;
+    }
+    .button-primary {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 21px;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease, transform .25s var(--ease);
+    }
+    .button-primary:hover { background: transparent; color: var(--accent); transform: translateY(-2px); }
+    .button-primary svg { width: 15px; height: 15px; }
+    .hero-foot {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 49px;
+      color: rgba(250,249,245,.42);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .hero-foot span:first-child { color: var(--white); }
+    .hero-foot .foot-line { width: 34px; height: 1px; background: rgba(255,255,255,.3); }
+    .hero-visual { min-height: 560px; position: relative; overflow: hidden; background: #33312d; }
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(17,17,16,.24), transparent 40%), linear-gradient(0deg, rgba(17,17,16,.35), transparent 40%);
+      pointer-events: none;
+    }
+    .hero-visual img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center 34%; filter: saturate(.72); }
+    .hero-image-caption {
+      position: absolute;
+      z-index: 1;
+      right: 28px;
+      bottom: 27px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .hero-image-caption::before { content: ""; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
+    .ticker {
+      overflow: hidden;
+      padding: 16px 0;
+      background: var(--paper);
+      color: var(--ink);
+      border-top: 1px solid rgba(17,17,16,.08);
+      border-bottom: 1px solid rgba(17,17,16,.08);
+    }
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      width: max-content;
+      animation: ticker 34s linear infinite;
+    }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 34px;
+      font-family: "Manrope", sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .ticker-item::after { content: "✳"; color: #85847c; font-size: 14px; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+    .shop-section {
+      padding: 118px 0 126px;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .section-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: #73726b;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .section-topline span:last-child { display: flex; align-items: center; gap: 9px; }
+    .section-topline span:last-child::before { content: ""; width: 24px; height: 1px; background: #99978e; }
+    .shop-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin: 25px 0 37px;
+    }
+    .shop-heading h2, .manifesto h2, .editorial-copy h2 {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(45px, 6vw, 82px);
+      line-height: .92;
+      font-weight: 800;
+      letter-spacing: -.085em;
+      text-transform: uppercase;
+    }
+    .shop-heading p {
+      max-width: 290px;
+      margin: 0 0 5px;
+      color: #6e6d66;
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 29px; }
+    .filter-button {
+      min-height: 34px;
+      padding: 0 14px;
+      border: 1px solid rgba(17,17,16,.2);
+      border-radius: 0;
+      background: transparent;
+      color: #6e6d66;
+      cursor: pointer;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease, border .2s ease;
+    }
+    .filter-button:hover, .filter-button.is-active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+    .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .product-card { min-width: 0; }
+    .product-image {
+      position: relative;
+      aspect-ratio: 3 / 3.85;
+      overflow: hidden;
+      background: #dfdcd4;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .75s var(--ease), filter .4s ease;
+      filter: saturate(.76);
+    }
+    .product-card:hover .product-image img { transform: scale(1.045); filter: saturate(.95); }
+    .product-index {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      color: var(--ink);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .product-status {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 8px 10px;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .product-info { padding: 16px 0 0; }
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: #85837b;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .product-info h3 {
+      margin: 7px 0 13px;
+      font-family: "Manrope", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -.025em;
+      text-transform: uppercase;
+    }
+    .product-action {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0 0;
+      border: 0;
+      border-top: 1px solid var(--line-light);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+    .product-action svg { width: 17px; height: 17px; transition: transform .2s ease; }
+    .product-action:hover svg { transform: translateX(4px); }
+    .product-action.is-added { color: #657a37; }
+    .product-card[hidden] { display: none; }
+    .manifesto {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      min-height: 630px;
+      background: var(--ink-soft);
+      color: var(--white);
+      overflow: hidden;
+    }
+    .manifesto-copy {
+      padding: clamp(70px, 9vw, 132px) 7vw clamp(70px, 9vw, 132px) max(36px, calc((100vw - var(--content)) / 2));
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .manifesto .eyebrow { color: var(--accent); margin-bottom: 28px; }
+    .manifesto h2 { font-size: clamp(50px, 6.1vw, 88px); }
+    .manifesto h2 em { color: var(--accent); font-style: normal; }
+    .manifesto-copy p {
+      max-width: 365px;
+      margin: 30px 0 0;
+      color: rgba(250,249,245,.58);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .manifesto-visual { position: relative; min-height: 560px; background: #4a4842; overflow: hidden; }
+    .manifesto-visual img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center 27%; filter: grayscale(.45) saturate(.65); }
+    .manifesto-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(27,27,25,.3), transparent 45%); }
+    .manifesto-stamp {
+      position: absolute;
+      z-index: 1;
+      right: 24px;
+      bottom: 24px;
+      width: 95px;
+      height: 95px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 50%;
+      color: white;
+      font-family: "Manrope", sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-align: center;
+      line-height: 1.4;
+      transform: rotate(-12deg);
+    }
+    .editorial {
+      padding: 118px 0;
+      background: var(--paper-deep);
+      color: var(--ink);
+    }
+    .editorial-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(40px, 8vw, 112px); }
+    .editorial-image { position: relative; aspect-ratio: 5 / 4; overflow: hidden; background: #d2cfc6; }
+    .editorial-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.7); transition: transform .8s var(--ease); }
+    .editorial-image:hover img { transform: scale(1.035); }
+    .editorial-image-label {
+      position: absolute;
+      left: 17px;
+      bottom: 17px;
+      padding: 9px 12px;
+      background: var(--paper);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .editorial-copy .eyebrow { color: #77766e; margin-bottom: 24px; }
+    .editorial-copy h2 { max-width: 520px; font-size: clamp(44px, 5.5vw, 75px); }
+    .editorial-copy p { max-width: 360px; margin: 25px 0 32px; color: #696860; font-size: 13px; line-height: 1.85; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 19px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--ink);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .text-link svg { width: 15px; height: 15px; transition: transform .2s ease; }
+    .text-link:hover svg { transform: translateX(4px); }
+    .last-call {
+      padding: 83px 0;
+      background: var(--accent);
+      color: var(--ink);
+    }
+    .last-call-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .last-call h2 { margin: 0; font-family: "Manrope", sans-serif; font-size: clamp(31px, 4.5vw, 57px); font-weight: 800; line-height: .95; letter-spacing: -.075em; text-transform: uppercase; }
+    .last-call p { margin: 11px 0 0; color: rgba(17,17,16,.65); font-size: 11px; }
+    .button-dark {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 23px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease;
+      white-space: nowrap;
+    }
+    .button-dark:hover { background: transparent; color: var(--ink); }
+    .button-dark svg { width: 15px; height: 15px; }
+    .site-footer { padding: 60px 0 28px; background: var(--ink); color: var(--white); }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 50px; padding-bottom: 53px; }
+    .footer-brand .brand { font-size: 39px; }
+    .footer-brand p { max-width: 245px; margin: 18px 0 0; color: rgba(250,249,245,.48); font-size: 11px; line-height: 1.8; }
+    .footer-nav { display: flex; gap: clamp(35px, 7vw, 100px); }
+    .footer-col { display: flex; flex-direction: column; gap: 13px; }
+    .footer-col h3 { margin: 0 0 5px; color: rgba(250,249,245,.4); font-size: 8px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    .footer-col a { color: rgba(250,249,245,.82); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: color .2s ease; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 19px;
+      border-top: 1px solid var(--line-dark);
+      color: rgba(250,249,245,.4);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .footer-bottom span:last-child { color: rgba(250,249,245,.7); }
+    .drawer-backdrop {
+      position: fixed;
+      z-index: 80;
+      inset: 0;
+      background: rgba(0,0,0,.56);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+    .drawer-backdrop.is-open { opacity: 1; visibility: visible; }
+    .bag-drawer {
+      position: fixed;
+      z-index: 81;
+      top: 0;
+      right: 0;
+      width: min(440px, 100%);
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding: 27px;
+      background: var(--paper);
+      color: var(--ink);
+      transform: translateX(102%);
+      transition: transform .35s var(--ease);
+      box-shadow: -20px 0 60px rgba(0,0,0,.14);
+    }
+    .bag-drawer.is-open { transform: translateX(0); }
+    .drawer-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 19px; border-bottom: 1px solid var(--line-light); }
+    .drawer-head h2 { margin: 0; font-family: "Manrope", sans-serif; font-size: 19px; font-weight: 800; letter-spacing: -.04em; text-transform: uppercase; }
+    .drawer-close { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid var(--line-light); background: transparent; cursor: pointer; }
+    .drawer-close svg { width: 16px; height: 16px; }
+    .bag-items { flex: 1; overflow-y: auto; padding: 17px 0; }
+    .bag-empty { padding: 34px 0; color: #74736c; font-size: 12px; line-height: 1.8; }
+    .bag-empty strong { display: block; margin-bottom: 8px; color: var(--ink); font-size: 10px; letter-spacing: .12em; }
+    .bag-item { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 13px 0; border-bottom: 1px solid var(--line-light); }
+    .bag-item-name { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .bag-item-category { display: block; margin-top: 5px; color: #89877f; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+    .bag-remove { border: 0; background: transparent; color: #73726b; cursor: pointer; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .bag-remove:hover { color: #a33; }
+    .drawer-note { padding-top: 18px; border-top: 1px solid var(--line-light); color: #77766e; font-size: 10px; line-height: 1.7; }
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 82px;
+      left: 0;
+      right: 0;
+      padding: 10px 28px 25px;
+      background: var(--ink);
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .mobile-nav.is-open { display: flex; flex-direction: column; }
+    .mobile-nav a { padding: 14px 0; border-bottom: 1px solid var(--line-dark); color: var(--white); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .mobile-nav a:last-child { border: 0; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1000px) {
+      .hero h1 { font-size: clamp(62px, 9vw, 100px); }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; row-gap: 35px; }
+      .manifesto { min-height: 540px; }
+      .editorial-grid { gap: 45px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: calc(100% - 42px); }
+      .announcement { gap: 9px; font-size: 8px; letter-spacing: .1em; }
+      .announcement span { display: none; }
+      .site-header { height: 70px; padding: 0 21px; }
+      .brand { font-size: 26px; }
+      .main-nav, .header-link { display: none; }
+      .header-actions { gap: 10px; margin-left: auto; }
+      .bag-button { gap: 7px; font-size: 9px; }
+      .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .menu-toggle svg { width: 21px; height: 21px; }
+      .mobile-nav { top: 70px; }
+      .hero { display: flex; flex-direction: column; }
+      .hero-copy { padding: 69px 21px 53px; }
+      .hero h1 { font-size: clamp(65px, 17vw, 112px); }
+      .hero-lead { margin: 23px 0 27px; font-size: 13px; }
+      .hero-foot { margin-top: 36px; }
+      .hero-visual { min-height: 470px; height: 112vw; max-height: 650px; }
+      .shop-section { padding: 78px 0 84px; }
+      .shop-heading { display: block; margin: 21px 0 28px; }
+      .shop-heading h2 { font-size: clamp(44px, 13vw, 70px); }
+      .shop-heading p { margin-top: 18px; }
+      .filters { gap: 6px; margin-bottom: 21px; }
+      .filter-button { padding: 0 11px; font-size: 8px; }
+      .product-grid { gap: 30px 11px; }
+      .product-image { aspect-ratio: 3 / 4.1; }
+      .product-index { top: 9px; left: 9px; font-size: 8px; }
+      .product-status { top: 8px; right: 8px; padding: 7px; font-size: 7px; }
+      .product-info { padding-top: 12px; }
+      .product-info h3 { font-size: 12px; margin: 6px 0 11px; }
+      .product-meta { font-size: 7px; }
+      .product-action { font-size: 8px; }
+      .manifesto { display: flex; flex-direction: column; }
+      .manifesto-copy { padding: 80px 21px 57px; }
+      .manifesto h2 { font-size: clamp(51px, 13vw, 76px); }
+      .manifesto-copy p { margin-top: 23px; }
+      .manifesto-visual { min-height: 480px; height: 112vw; max-height: 620px; }
+      .editorial { padding: 78px 0; }
+      .editorial-grid { grid-template-columns: 1fr; gap: 37px; }
+      .editorial-image { aspect-ratio: 4 / 3.2; }
+      .editorial-copy h2 { font-size: clamp(46px, 12vw, 67px); }
+      .last-call { padding: 62px 0; }
+      .last-call-inner { align-items: flex-start; flex-direction: column; }
+      .site-footer { padding: 48px 0 23px; }
+      .footer-top { flex-direction: column; gap: 38px; padding-bottom: 38px; }
+      .footer-nav { width: 100%; justify-content: space-between; gap: 18px; }
+      .footer-bottom { flex-direction: column; gap: 10px; font-size: 7px; }
+      .bag-drawer { padding: 22px; }
+    }
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 62px; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .product-info h3 { font-size: 11px; }
+      .footer-nav { gap: 13px; }
+      .footer-col a { font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-<body></body>
+<body>
+  <div class="announcement">
+    <span>WTBF® — INDEPENDENT CLOTHING LABEL</span>
+    <span>DESIGNED FOR DAILY ROTATION</span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="WTBF home">WTBF<span class="brand-mark">®</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a>
+      <a href="#about">Our point of view</a>
+      <a href="#journal">Journal</a>
+    </nav>
+    <div class="header-actions">
+      <button class="bag-button" id="bagOpen" type="button" aria-label="Open your selection">
+        Selection <span class="bag-count" id="bagCount">0</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 7h18M3 17h18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#shop">Shop the drop</a>
+      <a href="#about">Our point of view</a>
+      <a href="#journal">Journal</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">New wave / Est. 2026</p>
+        <h1>WEAR<br>YOUR<br><em>OWN</em><br>RULES.</h1>
+        <p class="hero-lead">Everyday pieces. Uncompromising attitude. A different point of view on what you wear.</p>
+        <a class="button-primary" href="#shop">
+          Explore the drop
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg>
+        </a>
+        <div class="hero-foot"><span>WTBF®</span><span class="foot-line"></span><span>Wear it your way</span></div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1500&q=88" alt="Editorial streetwear look in a city setting" fetchpriority="high">
+        <div class="hero-image-caption">The everyday uniform / 001</div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="WTBF brand statement">
+      <div class="ticker-track">
+        <span class="ticker-item">Less noise, more meaning</span><span class="ticker-item">Made to move</span><span class="ticker-item">Own your point of view</span><span class="ticker-item">WTBF — daily uniform</span>
+        <span class="ticker-item">Less noise, more meaning</span><span class="ticker-item">Made to move</span><span class="ticker-item">Own your point of view</span><span class="ticker-item">WTBF — daily uniform</span>
+      </div>
+    </div>
+
+    <section class="shop-section" id="shop">
+      <div class="container">
+        <div class="section-topline reveal">
+          <span>01 / The collection</span>
+          <span>A first look at WTBF</span>
+        </div>
+        <div class="shop-heading reveal">
+          <h2>THE FIRST<br>IMPRESSION.</h2>
+          <p>A considered preview of everyday essentials, relaxed layers and the details that make them yours.</p>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filter collection">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All pieces</button>
+          <button class="filter-button" type="button" data-filter="tops" aria-pressed="false">Tops</button>
+          <button class="filter-button" type="button" data-filter="layers" aria-pressed="false">Layers</button>
+          <button class="filter-button" type="button" data-filter="accessories" aria-pressed="false">Accessories</button>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal" data-category="tops" data-id="core-tee" data-name="The Core Tee">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=82" alt="Minimal everyday T-shirt" loading="lazy">
+              <span class="product-index">01 / 04</span><span class="product-status">Drop preview</span>
+            </div>
+            <div class="product-info">
+              <div class="product-meta"><span>01 — Tops</span><span>WTBF®</span></div>
+              <h3>The Core Tee</h3>
+              <button class="product-action" type="button" data-add="core-tee"><span>Add to selection</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="layers" data-id="heavy-hoodie" data-name="Heavy Rotation Hoodie">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=82" alt="Relaxed heavyweight hoodie" loading="lazy">
+              <span class="product-index">02 / 04</span><span class="product-status">Drop preview</span>
+            </div>
+            <div class="product-info">
+              <div class="product-meta"><span>02 — Layers</span><span>WTBF®</span></div>
+              <h3>Heavy Rotation Hoodie</h3>
+              <button class="product-action" type="button" data-add="heavy-hoodie"><span>Add to selection</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="layers" data-id="utility-layer" data-name="Utility Layer">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=82" alt="Structured everyday outerwear" loading="lazy">
+              <span class="product-index">03 / 04</span><span class="product-status">Drop preview</span>
+            </div>
+            <div class="product-info">
+              <div class="product-meta"><span>03 — Layers</span><span>WTBF®</span></div>
+              <h3>Utility Layer</h3>
+              <button class="product-action" type="button" data-add="utility-layer"><span>Add to selection</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-category="accessories" data-id="daily-cap" data-name="Daily Cap">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=900&q=82" alt="Minimal everyday cap" loading="lazy">
+              <span class="product-index">04 / 04</span><span class="product-status">Drop preview</span>
+            </div>
+            <div class="product-info">
+              <div class="product-meta"><span>04 — Accessories</span><span>WTBF®</span></div>
+              <h3>Daily Cap</h3>
+              <button class="product-action" type="button" data-add="daily-cap"><span>Add to selection</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h15M13 5l7-7-7 7"/></svg></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" id="about">
+      <div class="manifesto-copy">
+        <p class="eyebrow">02 / Our point of view</p>
+        <h2>LESS NOISE.<br>MORE<br><em>MEANING.</em></h2>
+        <p>WTBF is built around a simple idea: what you wear should feel like you. No unnecessary noise. Just considered pieces, personal style and room to move your own way.</p>
+      </div>
+      <div class="manifesto-visual">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1300&q=86" alt="Fashion editorial portrait" loading="lazy">
+        <div class="manifesto-stamp">WTBF<br>EST. 2026</div>
+      </div>
+    </section>
+
+    <section class="editorial" id="journal">
+      <div class="container editorial-grid">
+        <div class="editorial-image reveal">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=86" alt="Minimal fashion editorial portrait" loading="lazy">
+          <span class="editorial-image-label">A study in everyday style</span>
+        </div>
+        <div class="editorial-copy reveal">
+          <p class="eyebrow">03 / The WTBF mindset</p>
+          <h2>A BETTER KIND<br>OF EVERYDAY.</h2>
+          <p>Clean silhouettes. Thoughtful details. Pieces that work together and leave space for your own interpretation. This is only the beginning.</p>
+          <a class="text-link" href="#shop">Explore the edit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="last-call">
+      <div class="container last-call-inner">
+        <div>
+          <h2>YOUR STYLE.<br>YOUR RULES.</h2>
+          <p>Take another look at the first WTBF edit.</p>
+        </div>
+        <a class="button-dark" href="#shop">Back to the drop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#home">WTBF<span class="brand-mark">®</span></a>
+          <p>An independent clothing label. Everyday pieces, uncompromising attitude.</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h3>Explore</h3>
+            <a href="#shop">Collection</a>
+            <a href="#about">Our point of view</a>
+            <a href="#journal">Journal</a>
+          </div>
+          <div class="footer-col">
+            <h3>WTBF</h3>
+            <a href="#home">Back to top</a>
+            <a href="#shop">Drop preview</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> WTBF® — All rights reserved</span>
+        <span>Wear your own rules.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="bag-drawer" id="bagDrawer" aria-label="Your selection" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Your selection <span id="drawerCount">(0)</span></h2>
+      <button class="drawer-close" id="bagClose" type="button" aria-label="Close selection">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+    </div>
+    <div class="bag-items" id="bagItems">
+      <div class="bag-empty"><strong>NOTHING SAVED YET.</strong>Your selection is empty. Add a piece from the collection preview to keep it here.</div>
+    </div>
+    <p class="drawer-note">This is a collection preview. Product details, sizes, pricing and checkout will be added when the drop is finalized.</p>
+  </aside>
+
+  <script>
+    (function () {
+      const bagOpen = document.getElementById("bagOpen");
+      const bagClose = document.getElementById("bagClose");
+      const bagDrawer = document.getElementById("bagDrawer");
+      const drawerBackdrop = document.getElementById("drawerBackdrop");
+      const bagItems = document.getElementById("bagItems");
+      const bagCount = document.getElementById("bagCount");
+      const drawerCount = document.getElementById("drawerCount");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      const selection = [];
+      const productCards = Array.from(document.querySelectorAll(".product-card"));
+
+      function openBag() {
+        bagDrawer.classList.add("is-open");
+        drawerBackdrop.classList.add("is-open");
+        bagDrawer.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        bagClose.focus();
+      }
+
+      function closeBag() {
+        bagDrawer.classList.remove("is-open");
+        drawerBackdrop.classList.remove("is-open");
+        bagDrawer.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        bagOpen.focus();
+      }
+
+      function renderSelection() {
+        bagCount.textContent = String(selection.length);
+        drawerCount.textContent = "(" + selection.length + ")";
+        bagItems.replaceChildren();
+
+        if (!selection.length) {
+          const empty = document.createElement("div");
+          empty.className = "bag-empty";
+          const title = document.createElement("strong");
+          title.textContent = "NOTHING SAVED YET.";
+          const message = document.createTextNode("Your selection is empty. Add a piece from the collection preview to keep it here.");
+          empty.append(title, message);
+          bagItems.append(empty);
+        } else {
+          selection.forEach(function (item) {
+            const row = document.createElement("div");
+            row.className = "bag-item";
+            const copy = document.createElement("div");
+            const name = document.createElement("span");
+            name.className = "bag-item-name";
+            name.textContent = item.name;
+            const category = document.createElement("span");
+            category.className = "bag-item-category";
+            category.textContent = item.category + " / WTBF®";
+            copy.append(name, category);
+            const remove = document.createElement("button");
+            remove.className = "bag-remove";
+            remove.type = "button";
+            remove.textContent = "Remove";
+            remove.setAttribute("aria-label", "Remove " + item.name);
+            remove.addEventListener("click", function () {
+              removeItem(item.id);
+            });
+            row.append(copy, remove);
+            bagItems.append(row);
+          });
+        }
+
+        document.querySelectorAll("[data-add]").forEach(function (button) {
+          const isAdded = selection.some(function (item) { return item.id === button.dataset.add; });
+          button.classList.toggle("is-added", isAdded);
+          button.querySelector("span").textContent = isAdded ? "Saved to selection" : "Add to selection";
+          button.setAttribute("aria-pressed", isAdded ? "true" : "false");
+        });
+      }
+
+      function removeItem(id) {
+        const index = selection.findIndex(function (item) { return item.id === id; });
+        if (index !== -1) selection.splice(index, 1);
+        renderSelection();
+      }
+
+      document.querySelectorAll("[data-add]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const id = button.dataset.add;
+          const card = button.closest(".product-card");
+          const existing = selection.findIndex(function (item) { return item.id === id; });
+          if (existing === -1) {
+            selection.push({
+              id: id,
+              name: card.dataset.name,
+              category: card.dataset.category
+            });
+          } else {
+            selection.splice(existing, 1);
+          }
+          renderSelection();
+        });
+      });
+
+      bagOpen.addEventListener("click", openBag);
+      bagClose.addEventListener("click", closeBag);
+      drawerBackdrop.addEventListener("click", closeBag);
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && bagDrawer.classList.contains("is-open")) closeBag();
+      });
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = mobileNav.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+      mobileNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mobileNav.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open menu");
+        });
+      });
+
+      document.querySelectorAll("[data-filter]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const filter = button.dataset.filter;
+          document.querySelectorAll("[data-filter]").forEach(function (other) {
+            const active = other === button;
+            other.classList.toggle("is-active", active);
+            other.setAttribute("aria-pressed", active ? "true" : "false");
+          });
+          productCards.forEach(function (card) {
+            card.hidden = filter !== "all" && card.dataset.category !== filter;
+          });
+        });
+      });
+
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll(".reveal").forEach(function (element) { observer.observe(element); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (element) { element.classList.add("is-visible"); });
+      }
+
+      renderSelection();
+    })();
+  </script>
+</body>
 </html>
