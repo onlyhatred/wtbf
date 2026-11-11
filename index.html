@@ -398,6 +398,76 @@ body{background:var(--paper);color:var(--ink)}
   }
 }
 
+
+
+/* Always-moving chrome outlines; controls themselves stay fully transparent */
+.nav .logo,.navlinks a,.language-switch button{
+  color:#f8fbff!important;
+  background-color:transparent!important;
+  background-image:
+    linear-gradient(transparent,transparent),
+    linear-gradient(110deg,
+      #454d58 0%,
+      #f7fbff 9%,
+      #7d8998 17%,
+      #ffffff 25%,
+      #aab5c2 34%,
+      #414a56 43%,
+      #f5f8fc 53%,
+      #697584 62%,
+      #ffffff 72%,
+      #929eac 82%,
+      #f8fbff 91%,
+      #454d58 100%)!important;
+  background-size:100% 100%,260% 100%!important;
+  background-position:0 0,0% 50%!important;
+  background-origin:border-box!important;
+  background-clip:padding-box,border-box!important;
+  border:1.5px solid transparent!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 3px 12px rgba(4,10,18,.14)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  text-shadow:0 1px 5px rgba(0,0,0,.48);
+  animation:chromeOutlineFlow 4.2s linear infinite!important;
+}
+.nav .logo:before,.nav .logo:after,
+.navlinks a:before,.navlinks a:after,
+.language-switch button:before,.language-switch button:after{
+  display:none!important;
+  content:none!important;
+}
+.nav .logo:hover,.navlinks a:hover,.language-switch button:hover,
+.language-switch button.active{
+  color:#fff!important;
+  background-color:transparent!important;
+  background-image:
+    linear-gradient(transparent,transparent),
+    linear-gradient(110deg,
+      #454d58 0%,
+      #f7fbff 9%,
+      #7d8998 17%,
+      #ffffff 25%,
+      #aab5c2 34%,
+      #414a56 43%,
+      #f5f8fc 53%,
+      #697584 62%,
+      #ffffff 72%,
+      #929eac 82%,
+      #f8fbff 91%,
+      #454d58 100%)!important;
+  background-size:100% 100%,260% 100%!important;
+  background-position:0 0,0% 50%!important;
+  transform:translateY(-2px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 5px 16px rgba(4,10,18,.2)!important;
+}
+@keyframes chromeOutlineFlow{
+  0%{background-position:0 0,0% 50%}
+  100%{background-position:0 0,260% 50%}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav .logo,.navlinks a,.language-switch button{animation:none!important}
+}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
