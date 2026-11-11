@@ -249,6 +249,107 @@ body{background:var(--paper);color:var(--ink)}
 }
 @media(prefers-reduced-motion:reduce){.nav{animation:none}}
 
+
+
+/* Transparent dock + fractured-glass controls */
+.nav{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  padding:8px 10px;
+  gap:clamp(8px,1.5vw,18px);
+}
+.nav:before,.nav:after{display:none!important}
+.nav .logo,.navlinks a,.language-switch button{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:#f8fbff;
+  border:1px solid rgba(255,255,255,.66);
+  background:
+    linear-gradient(142deg,rgba(255,255,255,.56) 0%,rgba(215,226,239,.2) 20%,rgba(94,113,135,.22) 42%,rgba(248,251,255,.34) 58%,rgba(110,128,149,.2) 78%,rgba(255,255,255,.48) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    inset 0 -1px 0 rgba(27,40,57,.22),
+    0 5px 15px rgba(5,12,23,.2),
+    0 1px 2px rgba(5,12,23,.16);
+  backdrop-filter:blur(13px) saturate(1.55);
+  -webkit-backdrop-filter:blur(13px) saturate(1.55);
+  text-shadow:0 1px 5px rgba(5,12,23,.48);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s,box-shadow .3s;
+}
+.nav .logo{padding:10px 15px}
+.navlinks a{border-radius:999px}
+.nav .logo:before,.navlinks a:before,.language-switch button:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(32deg,transparent 48.9%,rgba(255,255,255,.95) 49.25%,rgba(41,54,72,.52) 49.55%,transparent 49.95%),
+    linear-gradient(146deg,transparent 48.7%,rgba(255,255,255,.82) 49.05%,rgba(41,54,72,.38) 49.35%,transparent 49.8%),
+    linear-gradient(77deg,transparent 49.1%,rgba(255,255,255,.66) 49.38%,rgba(41,54,72,.32) 49.62%,transparent 50%),
+    linear-gradient(211deg,transparent 49.1%,rgba(255,255,255,.76) 49.38%,rgba(41,54,72,.35) 49.62%,transparent 50%),
+    linear-gradient(118deg,transparent 28%,rgba(255,255,255,.34) 28.25%,transparent 28.7%,transparent 70%,rgba(255,255,255,.28) 70.25%,transparent 70.7%);
+  opacity:.78;
+}
+.nav .logo:after,.navlinks a:after,.language-switch button:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(126deg,rgba(255,255,255,.62),transparent 23%,transparent 65%,rgba(255,255,255,.32)),
+    linear-gradient(36deg,transparent 0 68%,rgba(255,255,255,.2) 68.3% 68.8%,transparent 69%);
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+  opacity:.72;
+}
+.nav .logo:hover,.navlinks a:hover,.language-switch button:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.96);
+  background:
+    linear-gradient(140deg,rgba(255,255,255,.76),rgba(190,207,227,.34) 35%,rgba(65,82,104,.36) 68%,rgba(255,255,255,.64));
+  box-shadow:inset 0 1px 0 #fff,0 8px 20px rgba(5,12,23,.26),0 0 0 1px rgba(255,255,255,.16);
+}
+.language-switch{
+  padding:0!important;
+  gap:5px!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.language-switch button{
+  min-width:38px;
+  height:34px;
+  border-radius:999px;
+  border-color:rgba(255,255,255,.58);
+  color:#f8fbff;
+  font:700 10px 'DM Mono';
+}
+.language-switch button.active{
+  color:#fff;
+  background:
+    linear-gradient(145deg,rgba(24,34,48,.78),rgba(90,108,131,.62) 45%,rgba(25,35,49,.8));
+  border-color:rgba(255,255,255,.92);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 5px 15px rgba(5,12,23,.25);
+}
+@media(max-width:760px){
+  .nav{gap:6px;padding:6px 2px}
+  .nav .logo{padding:9px 12px}
+  .navlinks a{padding:0 9px;min-height:36px}
+  .language-switch{gap:3px!important}
+  .language-switch button{min-width:32px;padding:0 8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav .logo,.navlinks a,.language-switch button{transition:none}
+}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
