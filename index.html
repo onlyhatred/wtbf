@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f4f0e8"><title>WTBF® — Wear The Unknown</title>
+<meta name="theme-color" content="#f4f0e8"><title>WTBF® — Wear The Unknown</title><meta name="description" content="Independent clothing shaped by art, culture and self-expression.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -18,25 +18,22 @@
 .drop{background:var(--blue);color:white;text-align:center;min-height:540px;display:grid;place-items:center;overflow:hidden}.drop h2{font-size:clamp(70px,15vw,200px);margin:0;line-height:.78;letter-spacing:-.11em}.count{display:flex;gap:clamp(12px,4vw,55px);justify-content:center;margin:45px 0}.count strong{font-size:clamp(30px,6vw,70px);display:block;letter-spacing:-.07em}.count span{font:9px 'DM Mono';text-transform:uppercase}.drop-star{position:absolute;font-size:150px;color:var(--lime);animation:spin 20s linear infinite}.drop-star.one{left:5%;top:8%}.drop-star.two{right:5%;bottom:4%;font-size:100px;color:var(--pink)}
 .footer{background:var(--ink);color:white;padding:70px 5vw 25px}.footer-top{display:flex;justify-content:space-between;gap:40px;align-items:start}.footer-logo{font-size:clamp(80px,19vw,250px);font-weight:700;letter-spacing:-.12em;line-height:.8}.footer-links{display:grid;gap:10px;font:11px 'DM Mono';text-transform:uppercase}.footer-bottom{border-top:1px solid #555;margin-top:80px;padding-top:18px;display:flex;justify-content:space-between;font:9px 'DM Mono';text-transform:uppercase}
 .reveal{opacity:0;transform:translateY(55px) rotate(2deg);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:translateY(0) rotate(0)}
+.nav-actions{display:flex;align-items:center;gap:18px}.language-switch{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid rgba(23,23,23,.28);border-radius:999px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px)}.language-switch button{padding:6px 9px;border-radius:999px;background:transparent;font:500 10px 'DM Mono';opacity:.58}.language-switch button.active{background:var(--ink);color:#fff;opacity:1}.nav .menu{padding:6px 0}@media(max-width:760px){.nav-actions{gap:10px}.language-switch button{padding:6px 8px}}
 @media(max-width:760px){.nav{padding:0 5vw;height:62px}.navlinks{display:none}.menu{display:block}.hero{min-height:720px;padding-top:120px}.hero h1{font-size:23vw;margin-top:18vh}.hero:before{width:95vw;height:95vw;right:-15%;top:24%}.sticker-star{right:12%;top:20%;font-size:65px}.sticker-smile{width:66px;height:66px;font-size:40px}.sticker-tag{top:57%;right:4%}.hero-foot{bottom:24px;align-items:end}.hero-foot p{max-width:160px;font-size:11px}.hero-foot .date{font-size:23px}.section{padding:80px 5vw}.section-head{margin-bottom:35px}.stage{min-height:760px}.stage-wrap{height:520px}.model{width:65vw;height:410px}.stage-label.left{left:0;top:12%}.stage-label.right{right:0;bottom:9%}.product-grid{grid-template-columns:1fr 1fr}.product-visual{height:300px}.product:last-child{grid-column:1/-1}.product:last-child .product-visual{height:390px}.look-grid{grid-template-columns:1fr 1fr}.look-grid .look-a{height:330px;margin-top:25px}.look-grid .look-b{height:250px}.look-grid .look-c{height:300px;margin-top:20px;grid-column:1/-1;width:75%;justify-self:end}.footer-top{display:block}.footer-links{display:flex;flex-wrap:wrap;margin-top:35px}.footer-bottom{margin-top:50px;gap:20px;flex-wrap:wrap}}
 /* Touch input does not activate the custom cursor; keep cursor layers available for a connected mouse. */
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style></head>
 <body><div class="grain"></div>
-<div class="topline mono"><span>INDEPENDENT CLOTHING PROJECT</span><span>FIRST DROP / MAY 2027</span><span>WORLDWIDE ENERGY ↗</span></div>
-<nav class="nav"><a class="logo" href="#">WTBF®</a><div class="navlinks"><a href="#concept">CONCEPT</a><a href="#collection">COLLECTION</a><a href="#lookbook">LOOKBOOK</a><a href="#drop">DROP 001</a></div><button class="menu" onclick="document.querySelector('#collection').scrollIntoView({behavior:'smooth'})">EXPLORE ↘</button></nav>
-<header class="hero" id="home"><div class="hero-kicker mono"><span>WEAR THE UNKNOWN</span><span>VOL. 001 — 2027</span></div><h1><span>WT</span><span class="second">BF®</span></h1><div class="sticker sticker-star">✳</div><div class="sticker sticker-smile">✳</div><div class="sticker sticker-tag">NOT MADE<br>TO BLEND IN</div><div class="hero-foot"><p>Clothing as a canvas.<br>Movement as a language.<br>Expression without a template.</p><div class="date">FIRST DROP<br><span style="color:white">MAY 2027 ↗</span></div></div></header>
-<div class="marquee"><div class="marquee-track">MAKE SPACE FOR THE UNEXPECTED <em>✳</em> WTBF IS IN MOTION <em>✳</em> MAKE SPACE FOR THE UNEXPECTED <em>✳</em> WTBF IS IN MOTION <em>✳</em></div></div>
-<section class="section intro" id="concept"><div class="section-head"><div class="eyebrow">01 / THE IDEA</div><div class="eyebrow">NO FIXED FORM — NO FIXED RULES</div></div><h2 class="reveal">NOT JUST<br>ANOTHER<br>UNIFORM.</h2><p class="intro-copy reveal">WTBF lives somewhere between <span>clothing, art and culture.</span> A changing visual world built for people who see style as a way to express what words cannot.</p><div class="scribble">✳</div></section>
-<section class="section stage" id="motion"><div class="section-head"><div class="eyebrow">02 / IN MOTION</div><div class="eyebrow">SCROLL TO CHANGE THE FORM ↓</div></div><h2 class="reveal">SAME BODY.<br>NEW ENERGY.</h2><div class="stage-wrap"><div class="stage-orbit"></div><div class="stage-label left">SHIFT</div><img class="model" id="scrollModel" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=85" alt="Streetwear editorial model"><div class="stage-label right">FORM</div><div class="float-word" style="top:12%;right:16%">FORM / 001</div><div class="float-word" style="bottom:12%;left:14%;background:var(--lime)">KEEP MOVING ↗</div></div><p class="mono">THE OBJECT RESPONDS TO YOUR SCROLL. MOVE THROUGH THE STORY.</p></section>
-<section class="section products" id="collection"><div class="section-head"><div><div class="eyebrow">03 / DROP 001</div><h2 class="reveal">OBJECTS<br>OF EXPRESSION.</h2></div><div class="eyebrow">MAY 2027<br>COLLECTION PREVIEW</div></div><div class="product-grid">
-<article class="product" style="--tone:#ff9fbd"><div class="product-visual"><span class="product-no">01</span><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85" alt="T-shirt concept"></div><div class="product-meta"><span>GRAPHIC TEE / CONCEPT</span><span>DROP 001</span></div></article>
-<article class="product" style="--tone:#a9c7ff"><div class="product-visual"><span class="product-no">02</span><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85" alt="Hoodie concept"></div><div class="product-meta"><span>HOODIE / CONCEPT</span><span>DROP 001</span></div></article>
-<article class="product" style="--tone:#c9ed72"><div class="product-visual"><span class="product-no">03</span><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85" alt="Streetwear look concept"></div><div class="product-meta"><span>DAILY UNIFORM / CONCEPT</span><span>DROP 001</span></div></article>
-</div><p class="mono" style="margin-top:28px">VISUAL PLACEHOLDERS — FINAL PRODUCTS WILL BE REVEALED CLOSER TO LAUNCH.</p></section>
-<section class="section lookbook" id="lookbook"><div class="section-head"><div class="eyebrow">04 / VISUAL ARCHIVE</div><div class="eyebrow">IMAGE MAKES THE IMPACT</div></div><h2 class="reveal">NO ONE<br>LOOKS THE SAME.</h2><div class="look-grid"><div><img class="look-a" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85" alt="Fashion editorial"><div class="look-caption">STUDY 001 — MOVEMENT</div></div><div><img class="look-b" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Street style editorial"><div class="look-caption">STUDY 002 — COLOR</div></div><div><img class="look-c" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85" alt="Fashion details"><div class="look-caption">STUDY 003 — FORM</div></div></div></section>
-<section class="section drop" id="drop"><div class="drop-star one">✳</div><div class="drop-star two">✳</div><div><div class="eyebrow">THE BEGINNING / 001</div><h2>COMING<br>IN MAY.</h2><div class="count" id="countdown"><div><strong>—</strong><span>Days</span></div><div><strong>—</strong><span>Hours</span></div><div><strong>—</strong><span>Minutes</span></div><div><strong>—</strong><span>Seconds</span></div></div><div class="mono">FIRST DROP — MAY 2027</div></div></section>
-<footer class="footer"><div class="footer-top"><div><div class="footer-logo">WTBF®</div><p class="mono">WEAR THE UNKNOWN. MAKE YOUR OWN FORM.</p></div><div class="footer-links"><a href="#home">BACK TO TOP ↑</a><a href="#concept">THE IDEA</a><a href="#collection">COLLECTION</a><a href="#lookbook">LOOKBOOK</a><a href="mailto:hello@wtbf.example">CONTACT</a><a href="#drop">DROP 001</a></div></div><div class="footer-bottom"><span>© WTBF 2026–2027</span><span>INDEPENDENT CLOTHING PROJECT</span><span>MADE TO MOVE ↗</span></div></footer>
+<div class="topline mono"><span data-i18n="toplineBrand">INDEPENDENT LABEL</span><span data-i18n="toplineDrop">DROP 001 / MAY 2027</span></div>
+<nav class="nav"><a class="logo" href="#home">WTBF®</a><div class="navlinks"><a href="#concept" data-i18n="navConcept">CONCEPT</a><a href="#collection" data-i18n="navCollection">COLLECTION</a><a href="#lookbook" data-i18n="navLookbook">LOOKBOOK</a><a href="#drop" data-i18n="navDrop">DROP 001</a></div><div class="nav-actions"><div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel"><button type="button" class="active" data-lang="en" aria-pressed="true" aria-label="English" data-i18n-aria="englishLabel">EN</button><button type="button" data-lang="uk" aria-pressed="false" aria-label="Українська" data-i18n-aria="ukrainianLabel">UA</button></div><button class="menu" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})" data-i18n="navCollection">COLLECTION</button></div></nav>
+<header class="hero" id="home"><h1><span>WT</span><span class="second">BF®</span></h1><div class="sticker sticker-star" aria-hidden="true">✳</div><div class="sticker sticker-smile" aria-hidden="true">✳</div></header>
+
+<section class="section intro" id="concept"><div class="section-head"><div class="eyebrow" data-i18n="conceptNo">01 / CONCEPT</div></div><h2 class="reveal" data-i18n="conceptTitle">WEAR THE<br>UNKNOWN.</h2><p class="intro-copy reveal" data-i18n="conceptText">Independent clothing shaped by art, culture and self-expression.</p><div class="scribble" aria-hidden="true">✳</div></section>
+<section class="section stage" id="motion"><div class="section-head"><div class="eyebrow" data-i18n="motionNo">02 / MOTION</div><div class="eyebrow" data-i18n="motionHint">SCROLL TO TRANSFORM</div></div><h2 class="reveal" data-i18n="motionTitle">FORM IN<br>MOTION.</h2><div class="stage-wrap"><div class="stage-orbit" aria-hidden="true"></div><div class="stage-label left" data-i18n="shift">SHIFT</div><img class="model" id="scrollModel" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=85" alt="Streetwear editorial model" data-i18n-alt="modelAlt"><div class="stage-label right" data-i18n="form">FORM</div></div></section>
+<section class="section products" id="collection"><div class="section-head"><div><div class="eyebrow" data-i18n="collectionNo">03 / DROP 001</div><h2 class="reveal" data-i18n="collectionTitle">COLLECTION</h2></div></div><div class="product-grid"><article class="product" style="--tone:#ff9fbd"><div class="product-visual"><span class="product-no">01</span><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85" alt="T-shirt concept" data-i18n-alt="teeAlt"></div><div class="product-meta"><span data-i18n="teeName">T-SHIRT</span><span>01</span></div></article><article class="product" style="--tone:#a9c7ff"><div class="product-visual"><span class="product-no">02</span><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85" alt="Hoodie concept" data-i18n-alt="hoodieAlt"></div><div class="product-meta"><span data-i18n="hoodieName">HOODIE</span><span>02</span></div></article><article class="product" style="--tone:#c9ed72"><div class="product-visual"><span class="product-no">03</span><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85" alt="Daily wear concept" data-i18n-alt="dailyAlt"></div><div class="product-meta"><span data-i18n="dailyName">DAILY WEAR</span><span>03</span></div></article></div><p class="mono" style="margin-top:28px" data-i18n="conceptOnly">CONCEPT IMAGES</p></section>
+<section class="section lookbook" id="lookbook"><div class="section-head"><div class="eyebrow" data-i18n="lookbookNo">04 / LOOKBOOK</div></div><div class="look-grid"><div><img class="look-a" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85" alt="Lookbook image one" data-i18n-alt="lookAltOne"><div class="look-caption" data-i18n="lookOne">01 / MOVEMENT</div></div><div><img class="look-b" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Lookbook image two" data-i18n-alt="lookAltTwo"><div class="look-caption" data-i18n="lookTwo">02 / COLOR</div></div><div><img class="look-c" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85" alt="Lookbook image three" data-i18n-alt="lookAltThree"><div class="look-caption" data-i18n="lookThree">03 / FORM</div></div></div></section>
+<section class="section drop" id="drop"><div class="drop-star one" aria-hidden="true">✳</div><div class="drop-star two" aria-hidden="true">✳</div><div><div class="eyebrow" data-i18n="dropNo">DROP 001</div><h2 data-i18n="dropTitle">MAY 2027</h2><div class="count" id="countdown"><div><strong>—</strong><span data-i18n="days">Days</span></div><div><strong>—</strong><span data-i18n="hours">Hours</span></div><div><strong>—</strong><span data-i18n="minutes">Minutes</span></div><div><strong>—</strong><span data-i18n="seconds">Seconds</span></div></div></div></section>
+<footer class="footer"><div class="footer-top"><div><div class="footer-logo">WTBF®</div></div><div class="footer-links"><a href="#home" data-i18n="backTop">BACK TO TOP</a><a href="#concept" data-i18n="navConcept">CONCEPT</a><a href="#collection" data-i18n="navCollection">COLLECTION</a><a href="#lookbook" data-i18n="navLookbook">LOOKBOOK</a><a href="#drop" data-i18n="navDrop">DROP 001</a></div></div><div class="footer-bottom"><span data-i18n="copyright">© WTBF 2027</span></div></footer>
 <script>
 
 
@@ -45,4 +42,67 @@ const model=document.getElementById('scrollModel');let ticking=false;function up
 const hero=document.querySelector('.hero');const colors=['#ff5aa5','#ff875c','#8bd8ce','#b6a0ff','#f0d34e','#8ab4ff'];let ci=0;setInterval(()=>{ci=(ci+1)%colors.length;hero.style.background=colors[ci]},4200);
 const target=new Date('2027-05-01T00:00:00');function tick(){let d=Math.max(0,target-Date.now());const vals=[Math.floor(d/86400000),Math.floor(d/3600000)%24,Math.floor(d/60000)%60,Math.floor(d/1000)%60];document.querySelectorAll('#countdown strong').forEach((el,i)=>el.textContent=String(vals[i]).padStart(2,'0'))}tick();setInterval(tick,1000);
 document.querySelectorAll('.product-visual').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*18+'deg');el.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*-18+'deg')});el.addEventListener('pointerleave',()=>{el.style.removeProperty('--mx');el.style.removeProperty('--my')})});
+
+const translations={
+en:{
+ pageTitle:"WTBF® — Wear The Unknown",pageDescription:"Independent clothing shaped by art, culture and self-expression.",
+ languageLabel:"Language",englishLabel:"English",ukrainianLabel:"Ukrainian",
+ toplineBrand:"INDEPENDENT LABEL",toplineDrop:"DROP 001 / MAY 2027",
+ navConcept:"CONCEPT",navCollection:"COLLECTION",navLookbook:"LOOKBOOK",navDrop:"DROP 001",
+ conceptNo:"01 / CONCEPT",conceptTitle:"WEAR THE<br>UNKNOWN.",conceptText:"Independent clothing shaped by art, culture and self-expression.",
+ motionNo:"02 / MOTION",motionHint:"SCROLL TO TRANSFORM",motionTitle:"FORM IN<br>MOTION.",shift:"SHIFT",form:"FORM",
+ collectionNo:"03 / DROP 001",collectionTitle:"COLLECTION",teeName:"T-SHIRT",hoodieName:"HOODIE",dailyName:"DAILY WEAR",conceptOnly:"CONCEPT IMAGES",
+ lookbookNo:"04 / LOOKBOOK",lookOne:"01 / MOVEMENT",lookTwo:"02 / COLOR",lookThree:"03 / FORM",
+ dropNo:"DROP 001",dropTitle:"MAY 2027",days:"Days",hours:"Hours",minutes:"Minutes",seconds:"Seconds",
+ backTop:"BACK TO TOP",copyright:"© WTBF 2027",
+ modelAlt:"Streetwear editorial model",teeAlt:"T-shirt concept",hoodieAlt:"Hoodie concept",dailyAlt:"Daily wear concept",
+ lookAltOne:"Lookbook image one",lookAltTwo:"Lookbook image two",lookAltThree:"Lookbook image three"
+},
+uk:{
+ pageTitle:"WTBF® — Носи невідоме",pageDescription:"Незалежний одяг на перетині мистецтва, культури та самовираження.",
+ languageLabel:"Мова",englishLabel:"Англійська",ukrainianLabel:"Українська",
+ toplineBrand:"НЕЗАЛЕЖНИЙ БРЕНД",toplineDrop:"ДРОП 001 / ТРАВЕНЬ 2027",
+ navConcept:"КОНЦЕПЦІЯ",navCollection:"КОЛЕКЦІЯ",navLookbook:"ЛУКБУК",navDrop:"ДРОП 001",
+ conceptNo:"01 / КОНЦЕПЦІЯ",conceptTitle:"НОСИ<br>НЕВІДОМЕ.",conceptText:"Незалежний одяг на перетині мистецтва, культури та самовираження.",
+ motionNo:"02 / РУХ",motionHint:"ГОРТАЙ, ЩОБ ЗМІНИТИ ФОРМУ",motionTitle:"ФОРМА<br>В РУСІ.",shift:"ЗМІНА",form:"ФОРМА",
+ collectionNo:"03 / ДРОП 001",collectionTitle:"КОЛЕКЦІЯ",teeName:"ФУТБОЛКА",hoodieName:"ХУДІ",dailyName:"ЩОДЕННИЙ ОДЯГ",conceptOnly:"КОНЦЕПТНІ ЗОБРАЖЕННЯ",
+ lookbookNo:"04 / ЛУКБУК",lookOne:"01 / РУХ",lookTwo:"02 / КОЛІР",lookThree:"03 / ФОРМА",
+ dropNo:"ДРОП 001",dropTitle:"ТРАВЕНЬ 2027",days:"Днів",hours:"Годин",minutes:"Хвилин",seconds:"Секунд",
+ backTop:"НАГОРУ",copyright:"© WTBF 2027",
+ modelAlt:"Модель у вуличному одязі",teeAlt:"Концепт футболки",hoodieAlt:"Концепт худі",dailyAlt:"Концепт повсякденного одягу",
+ lookAltOne:"Перше фото лукбуку",lookAltTwo:"Друге фото лукбуку",lookAltThree:"Третє фото лукбуку"
+}
+};
+function setLanguage(language){
+ const lang=language==="uk"?"uk":"en",dictionary=translations[lang];
+ document.documentElement.lang=lang;
+ document.title=dictionary.pageTitle;
+ const description=document.querySelector('meta[name="description"]');
+ if(description)description.content=dictionary.pageDescription;
+ document.querySelectorAll("[data-i18n]").forEach(element=>{
+  const value=dictionary[element.dataset.i18n];
+  if(value!==undefined)element.innerHTML=value;
+ });
+ document.querySelectorAll("[data-i18n-alt]").forEach(element=>{
+  const value=dictionary[element.dataset.i18nAlt];
+  if(value!==undefined)element.alt=value;
+ });
+ document.querySelectorAll("[data-i18n-aria]").forEach(element=>{
+  const value=dictionary[element.dataset.i18nAria];
+  if(value!==undefined)element.setAttribute("aria-label",value);
+ });
+ document.querySelectorAll("[data-lang]").forEach(button=>{
+  const active=button.dataset.lang===lang;
+  button.classList.toggle("active",active);
+  button.setAttribute("aria-pressed",String(active));
+  const key=button.dataset.i18nAria;
+  if(key&&dictionary[key])button.setAttribute("aria-label",dictionary[key]);
+ });
+ try{localStorage.setItem("wtbf-language",lang)}catch(error){}
+}
+document.querySelectorAll("[data-lang]").forEach(button=>button.addEventListener("click",()=>setLanguage(button.dataset.lang)));
+let initialLanguage="en";
+try{if(localStorage.getItem("wtbf-language")==="uk")initialLanguage="uk"}catch(error){}
+setLanguage(initialLanguage);
+
 </script></body></html>
