@@ -37,7 +37,7 @@ html.custom-cursor-ready body,html.custom-cursor-ready a,html.custom-cursor-read
     <stop offset="1" stop-color="#ffffff"/>
   </linearGradient>
 </defs>
-<path class="chrome-star" d="M50 1 C51.75 36 64.9 48.25 99 50 C64.9 51.75 51.75 64 50 99 C48.25 64 35.1 51.75 1 50 C35.1 48.25 48.25 36 50 1Z"/>
+<path class="chrome-star" d="M50 1 C51.225 40.2 60.43 48.775 99 50 C60.43 51.225 51.225 59.8 50 99 C48.775 59.8 39.57 51.225 1 50 C39.57 48.775 48.775 40.2 50 1Z"/>
 <path class="star-shine" d="M50 12 C54 31 64 42 87 50 M13 50 C33 44 43 34 50 12"/>
 </svg></div><div class="grain"></div>
 <div class="topline mono"><span>INDEPENDENT CLOTHING PROJECT</span><span>FIRST DROP / MAY 2027</span><span>WORLDWIDE ENERGY ↗</span></div>
@@ -55,35 +55,18 @@ html.custom-cursor-ready body,html.custom-cursor-ready a,html.custom-cursor-read
 <section class="section drop" id="drop"><div class="drop-star one">✳</div><div class="drop-star two">✳</div><div><div class="eyebrow">THE BEGINNING / 001</div><h2>COMING<br>IN MAY.</h2><div class="count" id="countdown"><div><strong>—</strong><span>Days</span></div><div><strong>—</strong><span>Hours</span></div><div><strong>—</strong><span>Minutes</span></div><div><strong>—</strong><span>Seconds</span></div></div><div class="mono">FIRST DROP — MAY 2027</div></div></section>
 <footer class="footer"><div class="footer-top"><div><div class="footer-logo">WTBF®</div><p class="mono">WEAR THE UNKNOWN. MAKE YOUR OWN FORM.</p></div><div class="footer-links"><a href="#home">BACK TO TOP ↑</a><a href="#concept">THE IDEA</a><a href="#collection">COLLECTION</a><a href="#lookbook">LOOKBOOK</a><a href="mailto:hello@wtbf.example">CONTACT</a><a href="#drop">DROP 001</a></div></div><div class="footer-bottom"><span>© WTBF 2026–2027</span><span>INDEPENDENT CLOTHING PROJECT</span><span>MADE TO MOVE ↗</span></div></footer>
 <script>
-// Minimal WTBF chrome star cursor — no trail, canvas or particles.
+// Static WTBF chrome star cursor: fixed orientation, direct pointer tracking.
 const cursor=document.getElementById('wtbfCursor');
-let pointerX=-120,pointerY=-120,cursorX=-120,cursorY=-120,lastX=-120,lastY=-120,angle=0,targetAngle=0,lastFrame=0,frameId=0,enabled=false;
-function animateStar(now){
-  const elapsed=Math.min(34,lastFrame?now-lastFrame:16);lastFrame=now;
-  const ease=1-Math.pow(.7,elapsed/16);
-  cursorX+=(pointerX-cursorX)*ease;cursorY+=(pointerY-cursorY)*ease;
-  let delta=((targetAngle-angle+540)%360)-180;angle+=delta*ease;
-  if(cursor)cursor.style.transform='translate3d('+(cursorX-23)+'px,'+(cursorY-23)+'px,0) rotate('+angle*.13+'deg)';
-  frameId=requestAnimationFrame(animateStar);
-}
 function onStarMove(event){
   if(event.pointerType==='touch')return;
   const x=event.clientX,y=event.clientY;
-  if(!Number.isFinite(x)||!Number.isFinite(y))return;
-  if(!enabled){
-    enabled=true;document.documentElement.classList.add('custom-cursor-ready');
-    pointerX=cursorX=x;pointerY=cursorY=y;lastX=x;lastY=y;
-    if(!frameId)frameId=requestAnimationFrame(animateStar);
-    return;
-  }
-  const dx=x-lastX,dy=y-lastY;
-  if(Math.hypot(dx,dy)>1.5)targetAngle=Math.atan2(dy,dx)*180/Math.PI;
-  pointerX=x;pointerY=y;lastX=x;lastY=y;
+  if(!Number.isFinite(x)||!Number.isFinite(y)||!cursor)return;
+  document.documentElement.classList.add('custom-cursor-ready');
+  cursor.style.transform='translate3d('+(x-23)+'px,'+(y-23)+'px,0)';
 }
 if(cursor){
   if('PointerEvent' in window)window.addEventListener('pointermove',onStarMove,{passive:true});
   else window.addEventListener('mousemove',onStarMove,{passive:true});
-  window.addEventListener('blur',()=>{enabled=false;document.documentElement.classList.remove('custom-cursor-ready');lastX=-120;lastY=-120});
 }
 
 const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});reveals.forEach(el=>observer.observe(el));
