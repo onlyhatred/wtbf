@@ -468,6 +468,75 @@ body{background:var(--paper);color:var(--ink)}
   .nav .logo,.navlinks a,.language-switch button{animation:none!important}
 }
 
+
+
+/* True hollow controls: animated chrome only on the perimeter */
+.nav .logo,.navlinks a,.language-switch button{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:transparent!important;
+  background-image:none!important;
+  border:1px solid transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  color:#f8fbff!important;
+  text-shadow:0 1px 5px rgba(0,0,0,.48);
+}
+.nav .logo:before,.navlinks a:before,.language-switch button:before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  padding:1.5px!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  background:linear-gradient(110deg,
+    #505966 0%,
+    #ffffff 8%,
+    #8d99a8 16%,
+    #fbfdff 24%,
+    #596574 33%,
+    #e8eef5 42%,
+    #414b58 51%,
+    #ffffff 60%,
+    #8793a1 69%,
+    #f7faff 78%,
+    #4a5562 88%,
+    #ffffff 96%,
+    #505966 100%)!important;
+  background-size:300% 100%!important;
+  background-position:0% 50%!important;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0)!important;
+  -webkit-mask-composite:xor!important;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0)!important;
+  mask-composite:exclude!important;
+  animation:chromeOutlineFlow 3.2s linear infinite!important;
+  opacity:1!important;
+}
+.nav .logo:after,.navlinks a:after,.language-switch button:after{
+  content:none!important;
+  display:none!important;
+}
+.nav .logo:hover,.navlinks a:hover,.language-switch button:hover,
+.language-switch button.active{
+  background:transparent!important;
+  background-image:none!important;
+  color:#fff!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  transform:translateY(-2px);
+}
+@keyframes chromeOutlineFlow{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+@media(prefers-reduced-motion:reduce){
+ .nav .logo:before,.navlinks a:before,.language-switch button:before{animation:none!important}
+}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
