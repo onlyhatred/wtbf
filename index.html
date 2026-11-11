@@ -668,6 +668,26 @@ body{background:var(--paper);color:var(--ink)}
   box-shadow:0 3px 10px rgba(8,18,5,.14),inset 0 1px 0 rgba(255,255,255,.78)!important;
 }
 
+
+
+/* Final navigation color: every control has a clean white surface */
+.nav .logo,.navlinks a,.language-switch button,
+.nav .logo:hover,.navlinks a:hover,.language-switch button:hover,
+.language-switch button.active,.language-switch button.active:hover{
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+  color:#171a20!important;
+  border-color:rgba(23,26,32,.16)!important;
+}
+.nav .logo,.navlinks a,.language-switch button{
+  box-shadow:0 3px 10px rgba(8,12,18,.12),inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+.language-switch button.active,.language-switch button.active:hover{
+  background:#fff!important;
+  box-shadow:0 3px 10px rgba(8,12,18,.12),inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -677,7 +697,7 @@ body{background:var(--paper);color:var(--ink)}
 <a href="#concept" data-i18n="navConcept">CONCEPT</a>
 <a href="#collection" data-i18n="navCollection">COLLECTION</a>
 <a href="#lookbook" data-i18n="navLookbook">LOOKBOOK</a>
-<a href="#drop" >DROP 1</a>
+<a href="#drop">DROP</a>
 </div>
 <div class="nav-actions">
 <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="languageLabel">
