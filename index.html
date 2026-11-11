@@ -58,6 +58,38 @@ body{background:#aeb4bc;color:#111318}
 @keyframes chromeSectionFlow{0%{background-position:0% 50%}100%{background-position:100% 50%}}
 @media(prefers-reduced-motion:reduce){.topline,.marquee,.section,.intro,.stage,.products,.lookbook,.drop{animation:none}}
 
+
+/* Chrome sculpture layers and dimensional motion */
+.hero{perspective:1100px}
+.chrome-object,.chrome-layer{position:absolute;pointer-events:none;transform-style:preserve-3d}
+.chrome-object{background:linear-gradient(125deg,#333a44 0%,#f9fbff 12%,#8d96a2 23%,#fff 34%,#525b67 47%,#dce2e9 59%,#68717d 72%,#fff 84%,#414954 100%);background-size:260% 260%;box-shadow:inset -12px -14px 24px rgba(20,25,32,.45),inset 8px 8px 20px rgba(255,255,255,.8),0 24px 45px rgba(20,25,32,.28);animation:chromeObjectLight 7s ease-in-out infinite,chromeFloat 8s ease-in-out infinite}
+.chrome-object:after,.chrome-layer:after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.9) 48%,rgba(255,255,255,.08) 54%,transparent 70%);background-size:220% 100%;animation:objectGlint 4.8s ease-in-out infinite;mix-blend-mode:screen}
+.hero-orb{width:clamp(110px,18vw,245px);aspect-ratio:1;border-radius:50%;right:14%;top:20%;z-index:2;transform:rotateX(18deg) rotateY(-25deg);animation:chromeObjectLight 7s ease-in-out infinite,orbFloat 7s ease-in-out infinite}
+.hero-ring{width:clamp(170px,25vw,340px);height:clamp(70px,10vw,130px);border:clamp(13px,2vw,24px) solid #cbd1d9;border-radius:50%;right:8%;top:28%;z-index:2;background:transparent;box-shadow:inset 0 3px 8px #fff,0 12px 24px #303741;transform:rotateX(68deg) rotateZ(-24deg);animation:ringOrbit 12s linear infinite}
+.hero-slab{width:clamp(90px,13vw,170px);height:clamp(90px,13vw,170px);right:31%;bottom:14%;border-radius:24%;z-index:2;transform:rotateX(58deg) rotateY(22deg) rotateZ(28deg);animation:slabFloat 9s ease-in-out infinite}
+.intro{isolation:isolate}.intro-layer{width:clamp(220px,38vw,520px);height:clamp(90px,14vw,180px);right:-5%;bottom:8%;z-index:-0;border-radius:50%;background:linear-gradient(110deg,#4c5561,#fff 18%,#8993a0 36%,#fff 52%,#515b68 72%,#e8edf2);box-shadow:0 25px 40px rgba(20,25,32,.25),inset 0 8px 16px rgba(255,255,255,.9);transform:rotate(-18deg) skewX(-18deg);animation:layerDrift 11s ease-in-out infinite}
+.stage{perspective:1200px}.stage-orbit{border:clamp(8px,1.3vw,16px) solid transparent;background:linear-gradient(120deg,#3b424c,#fff 18%,#8e98a4 36%,#fff 54%,#515a66 75%,#e8edf2) border-box;box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 15px 30px rgba(20,25,32,.2);transform:rotateX(68deg);animation:orbit3d 18s linear infinite}
+.stage-orb{width:clamp(70px,11vw,145px);aspect-ratio:1;border-radius:50%;right:16%;top:22%;z-index:3;animation:chromeObjectLight 6s ease-in-out infinite,orbFloat 6s ease-in-out infinite}
+.product-visual{perspective:900px;transform-style:preserve-3d}
+.product-visual:before{content:"";position:absolute;inset:9% 12%;border-radius:48% 52% 42% 58%;background:linear-gradient(120deg,#4b535e,#fff 17%,#929ba6 32%,#fff 48%,#555e69 65%,#e9edf2 82%,#444c57);box-shadow:inset -10px -12px 22px rgba(20,25,32,.38),inset 7px 7px 16px rgba(255,255,255,.85),0 18px 28px rgba(20,25,32,.22);transform:translateZ(-35px) rotateX(62deg) rotateZ(-18deg);opacity:.72;animation:slabFloat 10s ease-in-out infinite}
+.product-visual img{position:relative;transform:translateZ(35px) rotateX(4deg) rotateY(var(--mx,0deg)) rotateZ(var(--my,0deg));transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .7s}
+.product:hover .product-visual img{transform:translateZ(70px) rotateX(7deg) rotateY(var(--mx,0deg)) rotateZ(var(--my,0deg)) scale(1.07)}
+.look-grid>div{perspective:900px}.look-grid img{transform:rotateY(-5deg) rotateX(2deg);transition:transform .7s,filter .7s,box-shadow .7s}.look-grid img:hover{transform:rotateY(5deg) rotateX(-3deg) translateZ(22px) scale(.98)}
+.drop{perspective:1000px;isolation:isolate}.drop-sphere{width:clamp(110px,17vw,220px);aspect-ratio:1;border-radius:50%;left:8%;top:12%;z-index:0;animation:chromeObjectLight 8s ease-in-out infinite,orbFloat 8s ease-in-out infinite}
+.drop-ring{width:clamp(170px,25vw,330px);height:clamp(70px,10vw,125px);right:7%;bottom:8%;z-index:0;border:clamp(12px,2vw,22px) solid #dce1e7;border-radius:50%;background:transparent;box-shadow:inset 0 3px 9px #fff,0 15px 28px rgba(20,25,32,.35);transform:rotateX(65deg) rotateZ(28deg);animation:ringOrbit 15s linear infinite}
+.drop-layer{width:65%;height:35%;left:18%;top:34%;z-index:0;border-radius:50%;background:linear-gradient(120deg,#525b67,#fff 18%,#929ba6 34%,#fff 49%,#454e59 66%,#e7ebef 82%);box-shadow:inset 0 9px 18px rgba(255,255,255,.8),0 25px 45px rgba(20,25,32,.24);transform:rotate(-12deg) skewX(-22deg);animation:layerDrift 13s ease-in-out infinite}
+.drop>div:not(.chrome-object):not(.chrome-layer){position:relative;z-index:2}
+@keyframes chromeObjectLight{0%,100%{background-position:0% 40%;filter:brightness(.88)}50%{background-position:100% 60%;filter:brightness(1.22)}}
+@keyframes objectGlint{0%{background-position:140% 50%;opacity:0}30%{opacity:1}70%{opacity:.7}100%{background-position:-140% 50%;opacity:0}}
+@keyframes chromeFloat{0%,100%{translate:0 0}50%{translate:0 -22px}}
+@keyframes orbFloat{0%,100%{transform:translateY(0) rotateX(18deg) rotateY(-25deg)}50%{transform:translateY(-26px) rotateX(38deg) rotateY(28deg)}}
+@keyframes ringOrbit{0%{transform:rotateX(68deg) rotateZ(-24deg)}50%{transform:rotateX(68deg) rotateZ(156deg)}100%{transform:rotateX(68deg) rotateZ(336deg)}}
+@keyframes slabFloat{0%,100%{transform:translateY(0) rotateX(58deg) rotateY(22deg) rotateZ(28deg)}50%{transform:translateY(-20px) rotateX(72deg) rotateY(-18deg) rotateZ(48deg)}}
+@keyframes layerDrift{0%,100%{transform:translate3d(0,0,0) rotate(-18deg) skewX(-18deg)}50%{transform:translate3d(-24px,-16px,35px) rotate(-10deg) skewX(-10deg)}}
+@keyframes orbit3d{from{transform:rotateX(68deg) rotateZ(0)}to{transform:rotateX(68deg) rotateZ(360deg)}}
+@media(max-width:760px){.hero-orb{right:7%;top:17%;width:100px}.hero-ring{right:0;top:25%;width:145px;height:58px}.hero-slab{right:27%;bottom:17%;width:76px;height:76px}.intro-layer{right:-25%;bottom:4%;width:250px;height:90px}.stage-orb{right:5%;top:18%;width:72px}.drop-sphere{left:3%;top:8%;width:100px}.drop-ring{right:-12%;bottom:7%;width:180px;height:65px}.drop-layer{width:90%;left:5%;top:39%}}
+@media(prefers-reduced-motion:reduce){.chrome-object,.chrome-layer,.stage-orbit{animation:none!important}}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -77,6 +109,7 @@ body{background:#aeb4bc;color:#111318}
 </div>
 </nav>
 <header class="hero" id="home">
+<div class="chrome-object hero-orb" aria-hidden="true"></div><div class="chrome-object hero-ring" aria-hidden="true"></div><div class="chrome-object hero-slab" aria-hidden="true"></div>
 <h1>WTBF<span class="trademark">™</span></h1>
 </header>
 <section class="section intro" id="concept">
@@ -86,7 +119,7 @@ body{background:#aeb4bc;color:#111318}
 <section class="section stage" id="motion">
 <h2 class="reveal" data-i18n="motionTitle">MOTION</h2>
 <div class="stage-wrap">
-<div class="stage-orbit" aria-hidden="true"></div>
+<div class="stage-orbit" aria-hidden="true"></div><div class="chrome-object stage-orb" aria-hidden="true"></div>
 <img class="model" id="scrollModel" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=85" alt="Streetwear editorial model" data-i18n-alt="modelAlt">
 </div>
 </section>
@@ -107,7 +140,7 @@ body{background:#aeb4bc;color:#111318}
 </div>
 </section>
 <section class="section drop" id="drop">
-<div class="drop-star one" aria-hidden="true">✳</div><div class="drop-star two" aria-hidden="true">✳</div>
+<div class="chrome-object drop-sphere" aria-hidden="true"></div><div class="chrome-object drop-ring" aria-hidden="true"></div><div class="chrome-layer drop-layer" aria-hidden="true"></div>
 <div>
 <h2 data-i18n="dropTitle">MAY 2027</h2>
 <div class="count" id="countdown">
