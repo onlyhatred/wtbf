@@ -23,6 +23,41 @@
 /* Touch input does not activate the custom cursor; keep cursor layers available for a connected mouse. */
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 html,body,body *{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}::selection{background:transparent;color:inherit}::-moz-selection{background:transparent;color:inherit}
+
+/* WTBF full-site chrome art direction */
+:root{--ink:#111318;--paper:#c5c9ce;--pink:#aeb5bf;--lime:#e7ebef;--blue:#777f89;--orange:#8b929c;--purple:#dce0e5}
+body{background:#aeb4bc;color:#111318}
+.topline,.marquee,.footer{background:linear-gradient(110deg,#171a20,#626a75 18%,#e7ebef 34%,#777f89 49%,#f8fafc 62%,#525963 78%,#171a20);background-size:260% 100%;animation:chromeSurface 18s linear infinite;color:#101217}
+.topline{color:#f7f8fa;text-shadow:0 1px 2px #333}
+.marquee{color:#111318;border-top:1px solid #fff;border-bottom:1px solid #606873}
+.marquee em{color:#fff;text-shadow:0 1px 5px #343a43}
+.section,.intro,.stage,.products,.lookbook,.drop{color:#111318;background:linear-gradient(125deg,#555d67 0%,#e7eaee 13%,#929aa4 25%,#f8fafc 38%,#717985 52%,#dfe3e8 66%,#555d67 82%,#f7f9fb 100%);background-size:300% 100%;animation:chromeSurface 22s linear infinite}
+.intro{background-image:linear-gradient(115deg,#737b85,#f7f9fb 18%,#aeb5be 33%,#fff 47%,#59616c 62%,#dce1e6 77%,#707883);color:#111318}
+.stage{background-image:linear-gradient(130deg,#3c424b,#c9ced5 16%,#f8fafc 29%,#737b85 44%,#e9edf1 59%,#4d5560 73%,#d8dde3 88%);color:#111318}
+.products{background-image:linear-gradient(110deg,#777f89,#f5f7f9 18%,#aeb5be 35%,#fff 50%,#626a75 67%,#e3e7eb 83%);color:#111318}
+.lookbook{background-image:linear-gradient(120deg,#414852,#dce1e6 17%,#f9fafb 32%,#8a929d 48%,#e5e9ed 64%,#555d68 81%,#f8fafc);color:#111318}
+.drop{background-image:linear-gradient(115deg,#222831,#aeb5be 17%,#f8fafc 33%,#747d88 49%,#e5e9ed 65%,#3e4650 82%,#f8fafc);color:#111318}
+.section h2,.drop h2,.count strong,.footer-logo{color:#111318;text-shadow:0 1px 0 #fff,0 3px 9px rgba(20,25,32,.18)}
+.scribble,.drop-star{color:#f7f9fb!important;text-shadow:0 2px 8px rgba(0,0,0,.38)}
+.stage-orbit,.stage-orbit:before,.stage-orbit:after{border-color:rgba(30,36,44,.42)}
+.model{box-shadow:18px 20px 0 #747d88,0 0 0 1px rgba(255,255,255,.8);filter:grayscale(.72) contrast(1.08)}
+.product-visual{background:linear-gradient(135deg,#515964,#e9edf1 25%,#858e99 48%,#f8fafc 70%,#535b65);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 1px 0 #fff,0 12px 28px rgba(20,25,32,.15)}
+.product-visual img{mix-blend-mode:normal;filter:grayscale(.72) contrast(1.08);border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.product:hover .product-visual img{filter:grayscale(.25) contrast(1.12)}
+.look-grid img{filter:grayscale(.68) contrast(1.08);border:1px solid rgba(255,255,255,.75);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.look-grid img:hover{filter:grayscale(.2) contrast(1.1)}
+.product-meta,.look-caption,.eyebrow,.count span{color:#20252c}
+.footer{color:#f3f5f7;border-top:1px solid rgba(255,255,255,.7)}
+.footer-logo{color:#f3f5f7;text-shadow:0 2px 0 #626a75,0 5px 18px rgba(0,0,0,.5)}
+.footer-bottom{border-color:rgba(255,255,255,.45)}
+.nav{background:rgba(175,182,191,.24);border-color:rgba(255,255,255,.45)}
+.logo{background:linear-gradient(135deg,#171b21,#929aa4 42%,#f5f7f9 58%,#343b45);color:#fff;text-shadow:0 1px 3px #111}
+.navlinks a,.language-switch{background:linear-gradient(135deg,#f8fafc,#9ba3ad 45%,#e9edf1 65%,#747d88);border-color:rgba(255,255,255,.8);color:#111318}
+.navlinks a:hover,.language-switch button.active{background:linear-gradient(135deg,#20252d,#737c87 50%,#171b22);color:#fff}
+.language-switch button{color:#111318}
+@keyframes chromeSectionFlow{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){.topline,.marquee,.section,.intro,.stage,.products,.lookbook,.drop{animation:none}}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
