@@ -350,6 +350,54 @@ body{background:var(--paper);color:var(--ink)}
   .nav .logo,.navlinks a,.language-switch button{transition:none}
 }
 
+
+
+/* Material balance: visible frosted dock, clear fractured-glass buttons */
+.nav{
+  background:linear-gradient(120deg,rgba(236,242,250,.34),rgba(101,115,133,.32) 48%,rgba(231,238,247,.28))!important;
+  border:1px solid rgba(255,255,255,.48)!important;
+  box-shadow:
+    0 14px 38px rgba(5,10,18,.25),
+    inset 0 1px 0 rgba(255,255,255,.62),
+    inset 0 -1px 0 rgba(16,25,38,.18)!important;
+  backdrop-filter:blur(26px) saturate(1.45)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(1.45)!important;
+}
+.nav .logo,.navlinks a,.language-switch button{
+  color:#f8fbff;
+  background:
+    linear-gradient(138deg,rgba(255,255,255,.13),rgba(188,207,229,.045) 34%,rgba(35,52,73,.09) 68%,rgba(255,255,255,.12))!important;
+  border-color:rgba(255,255,255,.43);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -1px 0 rgba(20,34,52,.12),
+    0 2px 7px rgba(5,12,23,.1);
+  backdrop-filter:blur(8px) saturate(1.35);
+  -webkit-backdrop-filter:blur(8px) saturate(1.35);
+}
+.nav .logo:before,.navlinks a:before,.language-switch button:before{opacity:.55}
+.nav .logo:after,.navlinks a:after,.language-switch button:after{opacity:.46}
+.nav .logo:hover,.navlinks a:hover,.language-switch button:hover{
+  color:#fff;
+  background:linear-gradient(138deg,rgba(255,255,255,.24),rgba(190,211,235,.1) 42%,rgba(255,255,255,.18))!important;
+  border-color:rgba(255,255,255,.78);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.76),0 5px 13px rgba(5,12,23,.16);
+}
+.language-switch button.active{
+  color:#fff;
+  background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(165,187,213,.12) 50%,rgba(255,255,255,.18))!important;
+  border-color:rgba(255,255,255,.72);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 3px 10px rgba(5,12,23,.14);
+}
+@media(max-width:760px){
+  .nav{
+    background:linear-gradient(120deg,rgba(236,242,250,.4),rgba(101,115,133,.38) 48%,rgba(231,238,247,.34))!important;
+  }
+  .nav .logo,.navlinks a,.language-switch button{
+    background:linear-gradient(138deg,rgba(255,255,255,.15),rgba(188,207,229,.055) 34%,rgba(35,52,73,.1) 68%,rgba(255,255,255,.14))!important;
+  }
+}
+
 </style></head>
 <body>
 <div class="grain" aria-hidden="true"></div>
