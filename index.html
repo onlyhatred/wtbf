@@ -237,6 +237,25 @@ button{font:inherit;cursor:pointer}
  *,*:before,*:after{animation:none!important;transition:none!important}
  .reveal,.product,.look-grid>div{opacity:1!important;transform:none!important}
 }
+
+
+/* Navigation language controls stay white, matching the established WTBF rule */
+.language-switch button,
+.language-switch button:hover,
+.language-switch button.active,
+.language-switch button.active:hover{
+ background:#fff!important;
+ color:var(--ink)!important;
+ border:1px solid var(--line)!important;
+ box-shadow:none!important;
+ transform:none!important;
+}
+.language-switch button.active,
+.language-switch button.active:hover{
+ border-color:var(--wine)!important;
+ color:var(--wine)!important;
+}
+
 </style>
 </head>
 <body>
